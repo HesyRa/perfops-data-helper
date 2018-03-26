@@ -262,7 +262,7 @@
          */
         everythingIsLoaded: function(callback) {
             var _self = this;
-            var loading = Object.values(_self.loading).filter(function(item){ if(item.finished === false) return item; });
+            var loading = $.map(_self.loading, function(n){ return n;}).filter(function(item){ if(item.finished === false) return item; });
             if(loading.length) {
                 loading[0].ajax.then(function(){
                     _self.everythingIsLoaded(callback);
