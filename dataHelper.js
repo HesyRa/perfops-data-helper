@@ -143,9 +143,7 @@
          * @param hash Object
          */
         init: function (apiUrl, hash) {
-            if(typeof apiUrl !== 'undefined') {
-                this.apiUrl = apiUrl;
-            }
+          this.apiUrl = apiUrl || 'api.perfops.net';
             if(typeof hash !== 'undefined') {
                 $.extend(this.hash, hash);
             }
@@ -215,7 +213,7 @@
          * @param field
          */
         sortDataByField: function(data, field) {
-            if(data && data[Object.keys(data)[0]][field]) {
+            if(data && $.isArray(data) && data.length && data[0][field]) {
                 data.sort(function (a, b) { return (b[field] < a[field])? 1 : (b[field] > a[field]) ? -1 : 0; });
             }
             return data;

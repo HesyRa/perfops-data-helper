@@ -1,4 +1,7 @@
 # perfopsDataHelper
 
 to init Library
-`dataHelper.init();` 
+```javascript
+dataHelper.init(apiUrl, hash);
+```
+ 
